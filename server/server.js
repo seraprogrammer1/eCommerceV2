@@ -14,13 +14,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../client/", "dist")));
 app.use("/api", router);
 
-app.use(
-  "/images",
-  express.static(path.join(__dirname, "../client", "/public", "/images"))
-);
+app.use("/images", express.static(path.join(__dirname, "/dist", "/images")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/", "dist", "index.html"));
+  res.sendFile(path.join(__dirname, "/dist", "index.html"));
 });
 
 router.get("/products", api.products);

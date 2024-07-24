@@ -71,8 +71,6 @@ function Carousal({ autoSlide = false, autoSlideTime = 3000 }) {
     setIndex(index === 0 ? slideInfo.length - 1 : index - 1);
   };
   const next = () => {
-    console.log(index, slideInfo.length);
-    console.log(index === slideInfo.length - 1 ? 0 : index + 1);
     setIndex(index === slideInfo.length - 1 ? 0 : index + 1);
   };
 

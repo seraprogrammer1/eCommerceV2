@@ -99,8 +99,8 @@ function Login() {
         navigate(data.redirect);
       })
       .catch((err) => {
+        alert(err.message);
         console.error(err.message);
-        setSubmitted(err.massage);
       });
   }
 

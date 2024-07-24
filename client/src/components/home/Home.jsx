@@ -180,7 +180,7 @@ export default function Home() {
       <Hero />
       {/* <Slider /> */}
       {/* <SliderV2 slides={slides} /> */}
-      <div className="bg-mid-grayish-blue p-6">
+      <div className="bg-mid-grayish-blue flex justify-center p-6">
         <div className="max-w-7xl">
           <Carousal autoSlide={false} autoSlideTime={4000} />
         </div>

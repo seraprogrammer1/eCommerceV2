@@ -44,6 +44,10 @@ export default {
       animation: {
         grow: "grow 0.5s ease-in-out forwards",
         shrink: "shrink 0.5s ease-in-out forwards",
+        slideLeft: "slideLeft 1s ease-in-out forwards",
+        slideRight: "slideRight 1s ease-in-out forwards",
+        slideRightReverse: "slideRightReverse 1s ease-in-out forwards",
+        slideLeftReverse: "slideLeftReverse 1s ease-in-out forwards",
       },
     },
   },

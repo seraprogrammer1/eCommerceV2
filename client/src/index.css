@@ -10,6 +10,7 @@ html {
 body {
   height: 100%;
   width: 100%;
+  @apply bg-light-grayish-blue;
 }
 
 body.no-scroll {
@@ -59,5 +60,45 @@ body.no-scroll {
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slideRightReverse {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideLeftReverse {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0%);
   }
 }

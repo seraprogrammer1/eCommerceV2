@@ -82,44 +82,56 @@ function Carousal({ autoSlide = false, autoSlideTime = 3000 }) {
 
   return (
     <>
-      <div className="overflow-hidden relative m-12">
+      <div className="overflow-hidden relative m-2 md:m-12">
         <div
           className="grid grid-cols-3-full justify-between transition-transform ease-out duration-500 translate-x-[1px]"
           style={{ transform: `translateX(-${index * 100}%)` }}
         >
           {slideInfo.map((slide, i) => (
-            <div key={i} className={`grid grid-cols-2`}>
+            <div
+              key={i}
+              className={`grid grid-cols-1 md:grid-cols-2 justify-items-center gap-4 p-6`}
+            >
               <img
                 src={slide.src}
                 alt={slide.alt}
-                className="max-w-[500px] max-h-[500px] aspect-square object-contain"
+                className="max-w-full max-h-[500px] aspect-square object-contain"
               />
-              <div className="max-w-[500px] max-h-[500px] aspect-square text-xl border-4 border-black rounded-md p-6 flex flex-col justify-between bg-light-grayish-blue text-black">
-                <h3>{slide.header}</h3>
+              <div className="max-w-full max-h-[500px] overflow-auto aspect-square text-xl border-4 border-black rounded-md p-6 flex flex-col justify-between bg-light-grayish-blue text-black">
+                <p>{slide.header}</p>
                 <p>{slide.text}</p>
               </div>
             </div>
           ))}
         </div>
-        <div className="absolute inset-0">
+        <div
+          id="slideArrowButtonHolder"
+          className="absolute inset-x-0 inset-y-full top-1/2"
+        >
           <button
             onClick={prev}
+            aria-label="previous slide"
             className="absolute top-1/2 left-4 bg-dark-navy z-10 p-1 rounded-full opacity-80 hover:opacity-100"
           >
             <BackArrowSVG />
           </button>
           <button
             onClick={next}
+            aria-label="next slide"
             className="absolute top-1/2 right-4 bg-dark-navy text z-10 p-1 rounded-full opacity-80 hover:opacity-100"
           >
             <ForwardArrowSVG />
           </button>
         </div>
-        <div className="absolute bottom-4 left-0 right-0">
+        <div
+          id="slideNavButtonHolder"
+          className="absolute bottom-4 left-0 right-0"
+        >
           <div className="flex items-center justify-center gap-2">
             {slideInfo.map((_, i) => (
               <button
                 key={i}
+                aria-label="slide navigation"
                 onClick={() => setIndex(i)}
                 className={`w-4 h-4 rounded-full bg-black hover:bg-gray-500 transition-colors duration-300
               ${index === i ? "p-4" : "bg-opacity-50"}
@@ -141,7 +153,7 @@ function GenerateBuild() {
   };
 
   return (
-    <span className="grid grid-cols-1 gap-10 sm:gap-20 justify-items-center sm:grid-cols-2 py-40 px-6">
+    <span className="grid grid-cols-1-full gap-10 sm:gap-20 justify-items-center sm:grid-cols-2-full py-40 px-6">
       <form className="border-4 w-full h-full max-h-500px max-w-500px rounded-md p-6">
         <h2>Generate your build</h2>
         <fieldset className="flex">
@@ -180,7 +192,7 @@ export default function Home() {
       <Hero />
       {/* <Slider /> */}
       {/* <SliderV2 slides={slides} /> */}
-      <div className="bg-mid-grayish-blue flex justify-center p-6">
+      <div className="bg-mid-grayish-blue flex justify-center p-1 md:p-6">
         <div className="max-w-7xl">
           <Carousal autoSlide={false} autoSlideTime={4000} />
         </div>

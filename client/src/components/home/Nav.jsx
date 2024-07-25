@@ -4,11 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Links({ to, text }) {
   return (
-    <li className="mx-2 flex flex-col justify-center">
+    <span className="mx-2 flex flex-col justify-center">
       <Link className="text-sl sm:text-xl text-black md:text-white" to={to}>
         {text}
       </Link>
-    </li>
+    </span>
   );
 }
 
@@ -60,13 +60,14 @@ export default function Nav() {
         <img
           src={icon}
           className="w-16 mx-6"
+          alt="Galaxy_Builds_Icon"
           onClick={() => {
             navigate("/home");
           }}
         />
-        <ul className="flex mx-6">
-          <span className={`${!show ? "flex" : "nav"} md:flex`}>
-            <li className="md:hidden mx-2 flex flex-col justify-center">
+        <span className="flex mx-6">
+          <nav className={`${!show ? "flex" : "nav"} md:flex`}>
+            <div className="md:hidden mx-2 flex flex-col justify-center">
               <button
                 id="hamburger"
                 className={`${!show ? "" : "flex flex-row-reverse"} text-4xl max-h-fit`}
@@ -92,13 +93,13 @@ export default function Nav() {
                   </>
                 )}
               </button>
-            </li>
+            </div>
             <span className={`${!show ? "hidden" : "nav-span"} md:flex`}>
               <Links to="/home" text="Home" />
               <Links to="/store" text="Store" />
               <Links to="/cart" text="Cart" />
               <Links to="/contact" text="Contact" />
-              <li className="mx-2 flex flex-col justify-center">
+              <div className="mx-2 flex flex-col justify-center">
                 <button
                   className={`text-sl sm:text-xl text-black md:text-white border-2 border-black md:border-white rounded-md px-2
               hover:bg-white hover:text-dark-navy`}
@@ -116,10 +117,10 @@ export default function Nav() {
                 >
                   {loggedIN ? "Logout" : "Login"}
                 </button>
-              </li>
+              </div>
             </span>
-          </span>
-        </ul>
+          </nav>
+        </span>
       </div>
     </nav>
   );

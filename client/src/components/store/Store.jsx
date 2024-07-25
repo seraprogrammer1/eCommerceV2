@@ -92,7 +92,7 @@ export default function Store() {
         <div className="flex flex-col tablet:flex-row border-[1px] mx-6 my-1 border-[#ccc] p-2">
           <img
             src={items.image}
-            alt={items.productName}
+            alt={items.name}
             className="object-contain h-40 w-40 mr-2"
           />
           <div className="flex flex-col flex-grow justify-center mr-2 md:w-[300px] lg:w-[500px] *:mx-1 *:my-2">
@@ -105,7 +105,7 @@ export default function Store() {
               <li className="flex flex-col">
                 <button
                   onClick={handleClick}
-                  className="bg-mid-grayish-blue text-sm mt-1 text-white rounded-md max-w-fit px-2 py-0.5"
+                  className="bg-dark-navy text-sm mt-1 text-white rounded-md max-w-fit px-2 py-0.5"
                 >
                   {!show ? "VIEW DETAILS" : "HIDE DETAILS"}
                 </button>
@@ -118,7 +118,7 @@ export default function Store() {
           <div className="flex flex-col justify-center tablet:border-l-[1px] border-[#ccc] pl-2 w-full tablet:w-[7.5rem]">
             <p className="text-xl text-center price">${items.price}</p>
             <button
-              className="bg-mid-grayish-blue max-w-fit m-auto text-white ph-1.5 px-2 mt-0.5 rounded-md"
+              className="bg-dark-navy max-w-fit m-auto text-white ph-1.5 px-2 mt-0.5 rounded-md"
               onClick={(e) => {
                 let element = e.target;
                 if (element.classList.contains("disabled")) return;
@@ -244,10 +244,44 @@ export default function Store() {
     }
   }
 
+  function EmptyItems() {
+    return (
+      <>
+        <div className="flex flex-col tablet:flex-row border-[1px] mx-6 my-1 border-[#ccc] p-2">
+          <img className="object-contain h-40 w-40 mr-2" />
+          <div className="flex flex-col flex-grow justify-center mr-2 md:w-[300px] lg:w-[500px] *:mx-1 *:my-2">
+            <p className=""></p>
+            <ul>
+              <li className="flex">
+                <p className="text-gray-300 text-sm">Product #:</p>
+                <p className="text-gray-500 text-sm ml-1"></p>
+              </li>
+              <li className="flex flex-col">
+                <button className="bg-dark-navy text-sm mt-1 text-white rounded-md max-w-fit px-2 py-0.5"></button>
+                <p></p>
+              </li>
+            </ul>
+          </div>
+          <div className="flex flex-col justify-center tablet:border-l-[1px] border-[#ccc] pl-2 w-full tablet:w-[7.5rem]">
+            <p className="text-xl text-center"></p>
+            <button
+              className="bg-dark-navy max-w-fit m-auto text-white ph-1.5 px-2 mt-0.5 rounded-md invisible"
+              onClick={() => {}}
+            >
+              Remove
+            </button>
+          </div>
+        </div>
+      </>
+    );
+  }
+
+  console.log(Array.from({ length: 4, apple: "orange" }));
+
   return (
     <>
       {!loadedProductsJSON && (
-        <div className="fixed w-full h-full bg-mid-grayish-blue">
+        <div className="fixed w-full h-full bg-dark-navy">
           <p className="h-full text-6xl text-center pt-[50%]">Loading...</p>
         </div>
       )}
@@ -258,8 +292,9 @@ export default function Store() {
               <label className="text-black text-xl">Category:</label>
               <select
                 onInput={CategorySelect}
+                aria-label="Categories"
                 id="product"
-                className="bg-mid-grayish-blue text-[#ccc] text-xl rounded-md cursor-pointer w-[200px] border-[1px] border-[#ccc]"
+                className="bg-dark-navy text-white text-xl rounded-md cursor-pointer w-[200px] border-[1px] border-[#ccc]"
               >
                 <AddProducts inBar={true} />
               </select>
@@ -269,7 +304,8 @@ export default function Store() {
               <input
                 id="min"
                 type="number"
-                className="bg-mid-grayish-blue text-[#ccc] text-sm rounded-md cursor-pointer w-[200px] border-[1px] border-[#ccc] p-2"
+                aria-label="Min"
+                className="bg-dark-navy text-[#ccc] text-sm rounded-md cursor-pointer w-[200px] border-[1px] border-[#ccc] p-2"
                 onChange={(e) => {
                   minMax(e.target.value, true);
                 }}
@@ -278,7 +314,8 @@ export default function Store() {
               <input
                 id="max"
                 type="number"
-                className="bg-mid-grayish-blue text-[#ccc] text-sm rounded-md cursor-pointer w-[200px] border-[1px] border-[#ccc] p-2"
+                aria-label="Max"
+                className="bg-dark-navy text-[#ccc] text-sm rounded-md cursor-pointer w-[200px] border-[1px] border-[#ccc] p-2"
                 onChange={(e) => {
                   minMax(e.target.value, false);
                 }}
@@ -286,6 +323,8 @@ export default function Store() {
             </div>
           </div>
           <div id="store" className="flex-grow pb-40 pt-3">
+            {!loadedProductsJSON &&
+              Array.from({ length: 4 }).map((_, i) => <EmptyItems key={i} />)}
             <AddProducts inBar={false} />
           </div>
         </div>

@@ -27,8 +27,12 @@ export default {
         "max-lg": { max: "1023px" },
         "max-md": { max: "767px" },
         "max-sm": { max: "639px" },
+        "max-xs": { max: "479px" },
+        "max-xxs": { max: "399px" },
       },
       gridTemplateColumns: {
+        "1-full": "repeat(1, 100%)",
+        "2-full": "repeat(2, 100%)",
         "3-full": "repeat(3, 100%)",
         "4-full": "repeat(4, 100%)",
         "5-full": "repeat(5, 100%)",

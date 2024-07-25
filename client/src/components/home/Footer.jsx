@@ -7,21 +7,21 @@ import { Link } from "react-router-dom";
 
 function Links({ to, text }) {
   return (
-    <li className="mx-2 my-0.5 flex flex-col">
+    <span className="mx-2 my-0.5 flex flex-col">
       <Link className="text-sl sm:text-xl text-white" to={to}>
         {text}
       </Link>
-    </li>
+    </span>
   );
 }
 
 function PageLinks() {
   return (
     <div className="flex py-1 justify-center">
-      <ul className="flex mx-6">
+      <nav className="flex mx-6">
         <img
           src={icon}
-          alt="icon"
+          alt="Galaxy_Builds_Icon"
           className="w-8 h-8"
           onClick={() => {
             navigate("/home");
@@ -31,7 +31,7 @@ function PageLinks() {
         <Links to="/store" text="Store" />
         <Links to="/orders" text="Orders" />
         <Links to="/contact" text="Contact" />
-      </ul>
+      </nav>
     </div>
   );
 }

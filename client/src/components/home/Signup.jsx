@@ -130,7 +130,7 @@ function SignUp() {
     <>
       <div className="px-6 flex flex-col items-center py-40">
         <form
-          className="flex flex-col flex-grow px-6 py-6 bg-light-grayish-blue w-[500px] max-w-full *:my-2"
+          className="flex flex-col flex-grow px-6 py-6 bg-vibrant-sky-blue w-[500px] max-w-full *:my-2"
           onSubmit={handleSubmit}
         >
           <h1 className="text-2xl font-bold text-center">Sign Up</h1>

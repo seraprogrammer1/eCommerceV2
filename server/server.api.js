@@ -249,7 +249,6 @@ module.exports = {
   // Get Que by ID endpoint
   getQueById: (req, res) => {
     const id = req.params.id;
-    console.log(id);
     connection.query(`call getContactById('${id}')`, (err, results) => {
       if (err) {
         res.status(500).send;
@@ -328,7 +327,6 @@ module.exports = {
           if (err) {
             res.status(500).json({ message: "Internal server error" });
           } else {
-            console.log(results[0]);
             res.status(200).json({ message: "Deleted", results: results[0] });
           }
         }

@@ -201,7 +201,7 @@ export default function Cart() {
     <>
       <div className="flex flex-col justify-center tablet:flex-row h-full">
         <div className="flex flex-col justify-center bg-light-grayish-blue">
-          <div id="store" className="my-10 bg-white w-full h-full">
+          <div id="store" className="my-10 bg-white w-full">
             <div className="flex flex-col max-h-[800px] overflow-auto min-w-full">
               <h1 className="sticky top-0 text-6xl text-center bg-mid-grayish-blue">
                 {products.length === 0 ? "Cart is empty" : "Cart"}

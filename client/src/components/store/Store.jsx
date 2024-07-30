@@ -5,6 +5,7 @@ export default function Store() {
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(0);
 
+  // Component to add items
   function Item({ index, first }) {
     return (
       <>
@@ -18,6 +19,7 @@ export default function Store() {
     );
   }
 
+  // Component to add items
   function AddItems({ items }) {
     const [show, setShow] = useState(false);
     function handleClick() {
@@ -139,6 +141,7 @@ export default function Store() {
     );
   }
 
+  // Component to add categories
   function Category({ index, value, first }) {
     return (
       <>
@@ -154,13 +157,17 @@ export default function Store() {
     );
   }
 
+  // Component to add products
   function AddProducts({ inBar }) {
     const [productJSON, setProductJSON] = useState({});
 
+    // Function to update the products
     function updateProducts() {
+      // Check if the products are already loaded
       if (Object.keys(productJSON).length !== 0) {
         return;
       }
+      // Check if the products are already loaded
       if (Object.keys(loadedProductsJSON).length !== 0) {
         setProductJSON(loadedProductsJSON);
         return;
@@ -200,6 +207,7 @@ export default function Store() {
     );
   }
 
+  // Function to select the category
   function CategorySelect(e) {
     // removes the on class from all
     document.querySelectorAll(".product").forEach((element) => {
@@ -218,6 +226,7 @@ export default function Store() {
     e.target.querySelector(":checked").classList.add("on");
   }
 
+  // Function to filter the products by price
   function minMax(value, bool) {
     let Prices = document.querySelectorAll(".price");
     let findMainParent = (e) => {
@@ -244,6 +253,7 @@ export default function Store() {
     }
   }
 
+  // Component for empty items
   function EmptyItems() {
     return (
       <>
@@ -275,8 +285,6 @@ export default function Store() {
       </>
     );
   }
-
-  console.log(Array.from({ length: 4, apple: "orange" }));
 
   return (
     <>

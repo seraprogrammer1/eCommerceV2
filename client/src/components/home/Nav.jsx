@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import icon from "../../assets/images/nav/icon.png";
 import { Link, useNavigate } from "react-router-dom";
 
+// Component for the links
 function Links({ to, text }) {
   return (
     <span className="mx-2 flex flex-col justify-center">
@@ -12,12 +13,14 @@ function Links({ to, text }) {
   );
 }
 
+// Component for the navigation bar
 export default function Nav() {
   const navigate = useNavigate();
 
   const [show, setShow] = useState(false);
   const [loggedIN, setLoggedIN] = useState(false);
 
+  // Cookie object
   const cookie = {
     exists: function (name) {
       if (document.cookie.split(";").find((e) => e.includes(name))) return true;
@@ -34,6 +37,7 @@ export default function Nav() {
 
   cookie.check();
 
+  // Function to check if the user is logged in
   function logout() {
     if (cookie.exists("token")) {
       fetch("/api/logout")
@@ -65,7 +69,7 @@ export default function Nav() {
             navigate("/home");
           }}
         />
-        <span className="flex mx-6">
+        <span className="flex">
           <nav className={`${!show ? "flex" : "nav"} md:flex`}>
             <div className="md:hidden mx-2 flex flex-col justify-center">
               <button

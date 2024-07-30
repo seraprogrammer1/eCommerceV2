@@ -3,8 +3,9 @@ import icon from "../../assets/images/nav/icon.png";
 import facebook from "../../assets/images/socialIcons/facebook.png";
 import instagram from "../../assets/images/socialIcons/instagram.png";
 import twitter from "../../assets/images/socialIcons/twitter.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
+// Component for the links
 function Links({ to, text }) {
   return (
     <span className="mx-2 my-0.5 flex flex-col">
@@ -15,7 +16,9 @@ function Links({ to, text }) {
   );
 }
 
+// Component for the page links
 function PageLinks() {
+  const navigate = useNavigate();
   return (
     <div className="flex py-1 justify-center">
       <nav className="flex mx-6">
@@ -36,28 +39,7 @@ function PageLinks() {
   );
 }
 
-function NewsLetter() {
-  return (
-    <form
-      id="newsLetter"
-      className="row-span-2 max-h-150px max-w-170px flex flex-col justify-evenly rounded-lg px-2 text-black bg-light-grayish-blue *:my-2 "
-    >
-      <h3 className="text-center text-2xl">News Letter</h3>
-      <input
-        className="border-2 border-dark-navy px-1 rounded-md bg-gray-50 focus:outline-none"
-        type="email"
-        placeholder="Email"
-      />
-      <button
-        className="mx-auto border-2 border-dark-navy bg-vibrant-sky-blue px-1 py-0.5 rounded-md hover:bg-white hover:text-black"
-        type="submit"
-      >
-        Subscribe
-      </button>
-    </form>
-  );
-}
-
+// Component for the social media icons
 function SocialIcons({ src, alt, href }) {
   return (
     <a
@@ -70,6 +52,7 @@ function SocialIcons({ src, alt, href }) {
   );
 }
 
+// Component for holding the social media icons
 function FooterIcons() {
   return (
     <span className="flex">
@@ -88,6 +71,7 @@ function FooterIcons() {
   );
 }
 
+// Component for the Footer
 export default function Footer() {
   return (
     <div id="Footer" className="w-full py-6 bg-dark-navy">

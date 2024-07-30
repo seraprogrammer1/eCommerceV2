@@ -4,6 +4,7 @@ export default function Cart() {
   const [amount, setAmount] = useState(0);
   const [products, setProducts] = useState([]);
 
+  // Component to add items to cart
   function AddItems({ items }) {
     const [show, setShow] = useState(false);
     function handleClick() {
@@ -115,6 +116,7 @@ export default function Cart() {
     );
   }
 
+  // Component to display empty items in cart
   function EmptyItems() {
     return (
       <>
@@ -147,6 +149,7 @@ export default function Cart() {
     );
   }
 
+  // Component to update products in cart
   function updateProducts() {
     if (!products) return;
 
@@ -183,6 +186,7 @@ export default function Cart() {
     });
   }
 
+  // Component to add products to cart
   function AddProducts({ loadProducts }) {
     return (
       <>

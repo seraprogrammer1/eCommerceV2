@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+// Forward arrow SVG
 const ForwardArrowSVG = () => {
   return (
     <>
@@ -17,6 +18,7 @@ const ForwardArrowSVG = () => {
   );
 };
 
+// SVG for the back arrow
 const BackArrowSVG = () => {
   return (
     <>
@@ -34,6 +36,7 @@ const BackArrowSVG = () => {
   );
 };
 
+// Slide information
 const slideInfo = [
   {
     src: "/images/products/Cpu/AMD Ryzen 7 7800X3D.png",
@@ -55,14 +58,18 @@ const slideInfo = [
   },
 ];
 
+// Component for the Hero section
 function Hero() {
   return (
-    <div className="bg-light-grayish-blue text-dark-navy py-40">
-      <h1 className="text-5xl md:text-8xl text-center">Empowering Gamers</h1>
+    <div className="bg-hero bg-center bg-cover bg-no-repeat text-white py-40 bg-black opacity-90">
+      <h1 className="text-5xl md:text-8xl text-center bg-black opacity-95 py-2">
+        Empowering Gamers
+      </h1>
     </div>
   );
 }
 
+// Component for the Carousal
 function Carousal({ autoSlide = false, autoSlideTime = 3000 }) {
   const [index, setIndex] = React.useState(0);
 
@@ -145,47 +152,7 @@ function Carousal({ autoSlide = false, autoSlideTime = 3000 }) {
   );
 }
 
-function GenerateBuild() {
-  const [price, setPrice] = React.useState(750);
-
-  const handleInput = (e) => {
-    setPrice(parseInt(e.target.value));
-  };
-
-  return (
-    <span className="grid grid-cols-1-full gap-10 sm:gap-20 justify-items-center sm:grid-cols-2-full py-40 px-6">
-      <form className="border-4 w-full h-full max-h-500px max-w-500px rounded-md p-6">
-        <h2>Generate your build</h2>
-        <fieldset className="flex">
-          <label htmlFor="price">Price: </label>
-          <input
-            id="price"
-            type="range"
-            min="750"
-            max="3000"
-            step="150"
-            value={price}
-            onInput={handleInput}
-          />
-          <output name="total" htmlFor="price">
-            {price}
-          </output>
-        </fieldset>
-        <fieldset className="flex">
-          <p>Resolution:</p>
-          <label htmlFor="1080p">1080</label>
-          <input id="1080p" type="radio" value="1080p" name="Resolution" />
-          <label htmlFor="1440p">1440</label>
-          <input id="1440p" type="radio" value="1440p" name="Resolution" />
-          <label htmlFor="4k">4k</label>
-          <input id="4k" type="radio" value="4k" name="Resolution" />
-        </fieldset>
-      </form>
-      <img src="https://via.placeholder.com/500" alt="placeholder" />
-    </span>
-  );
-}
-
+// Component for the Home page
 export default function Home() {
   return (
     <>

@@ -8,7 +8,7 @@ const mysql = require("mysql2");
 require("dotenv").config();
 const api = require("./server.api");
 
-// app.use(cookieParser());
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "/dist")));
@@ -16,7 +16,6 @@ app.use("/api", router);
 
 app.use("/images", express.static(path.join(__dirname, "/dist", "/images")));
 
-// api/books
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./dist", "/index.html"));
 });

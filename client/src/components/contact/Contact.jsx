@@ -10,8 +10,9 @@ function Contact() {
     subject: { value: "", isValid: false },
     comment: { value: "", isValid: false },
   };
-  const [submitted, setSubmitted] = useState("");
+  const [submitted, setSubmitted] = useState(""); // check if the form has been submitted
 
+  // Component for creating the input fields
   function CreateInput({
     type,
     id,
@@ -85,6 +86,7 @@ function Contact() {
     );
   }
 
+  // Function to handle the form submission
   function handleSubmit(e) {
     e.preventDefault();
     if (submitted) {
@@ -92,6 +94,7 @@ function Contact() {
       return;
     }
 
+    // Check if all the fields are valid
     let pass = true;
     let message = "";
     Object.entries(form).forEach(([key, value]) => {
@@ -102,6 +105,7 @@ function Contact() {
       }
     });
 
+    // If any field is invalid, alert the user
     if (!pass) {
       alert(message);
       return;
@@ -119,6 +123,7 @@ function Contact() {
       }),
     };
 
+    // Send the data to the server
     fetch("/api/addQue", option)
       .then((res) => {
         if (!res.ok) {

@@ -53,6 +53,9 @@ export default {
         slideRightReverse: "slideRightReverse 1s ease-in-out forwards",
         slideLeftReverse: "slideLeftReverse 1s ease-in-out forwards",
       },
+      backgroundImage: (theme) => ({
+        hero: "url('/images/bg/homebg.webp')",
+      }),
     },
   },
   plugins: [

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+// Component for the login page
 function Login() {
   const navigate = useNavigate();
   const form = {
@@ -9,12 +10,13 @@ function Login() {
   };
   const [submitted, setSubmitted] = useState("");
 
+  // Component for creating the input fields
   function CreateInput({ type, id, name, formProp, label, classes }) {
     const [validInput, setValidInput] = useState({
       isValid: false,
       message: "",
     });
-    const [started, setStarted] = useState(false);
+    const [started, setStarted] = useState(false); // check if the input has been started
 
     function Validation(e) {
       if (!started) {
@@ -54,6 +56,7 @@ function Login() {
     );
   }
 
+  // Function to handle the form submission
   function handleSubmit(e) {
     e.preventDefault();
     if (submitted) {

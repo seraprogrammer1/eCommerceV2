@@ -4,6 +4,7 @@ require("dotenv").config();
 
 let connection;
 
+// Database connection and handling
 function handleDisconnect() {
   connection = mysql.createConnection({
     host: process.env.DB_HOST,
@@ -36,6 +37,7 @@ function handleDisconnect() {
 
 handleDisconnect();
 
+// Cookie object
 const cookie = {
   exists: function (cookie, name) {
     if (cookie.split(";").find((e) => e.includes(name))) return true;

@@ -12,7 +12,8 @@ import Login from "./components/home/Login";
 import Signup from "./components/home/Signup";
 import Cart from "./components/cart/Cart";
 
-function PassThrough({ Page }) {
+// Component for the pass-through pages
+function Root({ Page }) {
   return (
     <>
       <Nav />
@@ -24,6 +25,7 @@ function PassThrough({ Page }) {
   );
 }
 
+// Router configuration
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,34 +33,35 @@ const router = createBrowserRouter([
   },
   {
     path: "/home",
-    element: <PassThrough Page={Home} />,
+    element: <Root Page={Home} />,
   },
   {
     path: "/contact",
-    element: <PassThrough Page={Contact} />,
+    element: <Root Page={Contact} />,
   },
   {
     path: "/store",
-    element: <PassThrough Page={Store} />,
+    element: <Root Page={Store} />,
   },
   {
     path: "/cart",
-    element: <PassThrough Page={Cart} />,
+    element: <Root Page={Cart} />,
   },
   {
     path: "/login",
-    element: <PassThrough Page={Login} />,
+    element: <Root Page={Login} />,
   },
   {
     path: "/signup",
-    element: <PassThrough Page={Signup} />,
+    element: <Root Page={Signup} />,
   },
   {
     path: "*",
-    element: <PassThrough Page={Page404} />,
+    element: <Root Page={Page404} />,
   },
 ]);
 
+// Main App component
 function App() {
   return (
     <>

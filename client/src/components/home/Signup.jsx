@@ -10,8 +10,9 @@ function SignUp() {
     userName: { value: "", isValid: false },
     password: { value: "", isValid: false },
   };
-  const [submitted, setSubmitted] = useState("");
+  const [submitted, setSubmitted] = useState(""); // check if the form has been submitted
 
+  // Component for creating the input fields
   function CreateInput({ type, id, name, email, formProp, label, classes }) {
     const [validInput, setValidInput] = useState({
       isValid: false,
@@ -73,6 +74,7 @@ function SignUp() {
     );
   }
 
+  // Function to handle the form submission
   function handleSubmit(e) {
     e.preventDefault();
     if (submitted) {

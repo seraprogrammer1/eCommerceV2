@@ -61,8 +61,8 @@ const slideInfo = [
 // Component for the Hero section
 function Hero() {
   return (
-    <div className="bg-hero bg-center bg-cover bg-no-repeat text-white py-40 bg-black opacity-90">
-      <h1 className="text-5xl md:text-8xl text-center bg-black opacity-95 py-2">
+    <div className="bg-hero bg-center bg-cover bg-no-repeat text-white py-40 bg-black bg-opacity-90">
+      <h1 className="text-5xl md:text-8xl text-center bg-black bg-opacity-50 py-2">
         Empowering Gamers
       </h1>
     </div>

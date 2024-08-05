@@ -326,6 +326,7 @@ module.exports = {
       connection.query(
         `call deleteFromCart('${userID}','${id}')`,
         (err, results) => {
+          console.log(results);
           if (err) {
             res.status(500).json({ message: "Internal server error" });
           } else {

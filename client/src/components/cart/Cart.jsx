@@ -60,6 +60,7 @@ export default function Cart() {
       productPromise.then((data) => {
         let currentAmount = 0;
         let results = data.results;
+        console.log(data, results);
         results.forEach((e) => {
           currentAmount += parseInt(e.price);
         });

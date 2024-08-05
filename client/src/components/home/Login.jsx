@@ -8,7 +8,7 @@ function Login() {
     username: { value: "", isValid: false },
     password: { value: "", isValid: false },
   };
-  const [submitted, setSubmitted] = useState("");
+  const [submitted, setSubmitted] = useState(""); // check if the form has been submitted
 
   // Component for creating the input fields
   function CreateInput({ type, id, name, formProp, label, classes }) {
